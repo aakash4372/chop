@@ -16,7 +16,7 @@ export default function AboutSection() {
 
   return (
     <section className="w-full py-16 mb-16 bg-white" id="about">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 lg:gap-20 gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 lg:gap-12 gap-12 overflow-hidden">
         {/* Left content */}
         <div className="lg:w-1/2" data-aos="fade-right">
           <p className="text-[#9c0202] text-3xl font-dancing mb-2">About us</p>
@@ -59,7 +59,11 @@ export default function AboutSection() {
 
         {/* Right image */}
         <div className="lg:w-1/2 flex justify-center" data-aos="fade-left">
-          <img src={MeatImage} alt="Meat" className="w-full max-w-xl mx-auto lg:ml-10" />
+          <img 
+            src={MeatImage} 
+            alt="Meat" 
+            className="w-full max-w-md sm:max-w-lg lg:max-w-md object-contain mx-auto" 
+          />
         </div>
       </div>
     </section>

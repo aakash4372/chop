@@ -56,12 +56,16 @@ const Certificate = () => {
       backgroundColor: isActive ? '#7b011b' : '#f5f5f5',
       color: isActive ? 'white' : '#9c0202',
     },
+    [theme.breakpoints.down('sm')]: {
+      padding: '6px 16px',
+      fontSize: '0.875rem',
+    },
   }));
 
   const CertificateImage = ({ src, alt }) => (
-    <div className="w-full lg:w-1/2 p-4 lg:p-8 flex justify-center items-center">
+    <div className="w-full lg:w-1/2 p-4 lg:p-8 flex justify-center items-center overflow-hidden">
       <div
-        className="relative p-6 rounded-xl shadow-2xl bg-white transform transition-transform duration-300"
+        className="relative p-4 sm:p-6 rounded-xl shadow-2xl bg-white transform transition-transform duration-300 max-w-full"
         style={{
           boxShadow: '0 15px 30px rgba(0, 0, 0, 0.2)',
           border: '2px solid #9c0202',
@@ -76,7 +80,7 @@ const Certificate = () => {
         <img
           src={Pin}
           alt="Pin"
-          className="absolute top-0 right-0 w-10 h-10 transform -translate-x-3 -translate-y-3"
+          className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 transform translate-x-2 -translate-y-2"
           style={{
             zIndex: 10,
           }}
@@ -84,8 +88,8 @@ const Certificate = () => {
         <img
           src={src}
           alt={alt}
-          className="w-full h-auto rounded-lg object-cover"
-          style={{ maxWidth: '500px' }}
+          className="w-full h-auto rounded-lg object-contain max-w-[90%] sm:max-w-[500px] mx-auto"
+          loading="lazy"
         />
       </div>
     </div>
@@ -93,13 +97,13 @@ const Certificate = () => {
 
   const CertificateContent = ({ data }) => (
     <div className="w-full lg:w-1/2 p-4 lg:p-8 flex items-center">
-      <div className="bg-white p-6 rounded-xl shadow-xl border-t-4 border-[#9c0202] transform transition-transform duration-300">
+      <div className="bg-white p-4 sm:p-6 rounded-xl shadow-xl border-t-4 border-[#9c0202] transform transition-transform duration-300 w-full">
         <div className="flex items-center gap-4 mb-5">
           <div className="bg-[#9c0202] p-3 rounded-full text-white">
             {data.icon}
           </div>
           <div>
-            <h2 className="text-2xl font-serif font-semibold text-[#9c0202]">
+            <h2 className="text-xl sm:text-2xl font-serif font-semibold text-[#9c0202]">
               {data.title}
             </h2>
             <p className="text-gray-600 text-sm">{data.subtitle}</p>
@@ -135,27 +139,34 @@ const Certificate = () => {
   // Initialize AOS
   React.useEffect(() => {
     AOS.init({
-      duration: 1000, // Duration of animation
-      once: true,     // Trigger animation only once
+      duration: 1000,
+      once: true,
     });
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 py-12 px-4 sm:px-6 lg:px-8" id='certificate'>
-      <div className="max-w-6xl mx-auto">
+    <div
+      className="min-h-screen bg-gradient-to-b from-white to-gray-100 py-12 px-4 sm:px-6 lg:px-8"
+      id="certificate"
+    >
+      <div className="max-w-6xl mx-auto overflow-hidden">
         <div className="text-center mb-12">
-          {/* Heading with AOS */}
-          <h1 className="text-[#9c0202] text-3xl pt-8 font-dancing mb-2" data-aos="fade-up">
+          <h1
+            className="text-[#9c0202] text-2xl sm:text-3xl pt-8 font-dancing mb-2"
+            data-aos="fade-up"
+          >
             Our Certifications
           </h1>
-          {/* Subheading with AOS */}
-          <h2 className="text-4xl md:text-5xl font-bold text-[#000000] font-sans leading-tight mb-6" data-aos="fade-up">
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#000000] font-sans leading-tight mb-6"
+            data-aos="fade-up"
+          >
             Trusted Quality & Compliance
           </h2>
         </div>
 
-        <div className="flex justify-center mb-10" data-aos="fade-left">
-          <div className="inline-flex bg-white rounded-md p-1">
+        <div className="flex justify-center mb-8 sm:mb-10" data-aos="fade-left">
+          <div className="inline-flex bg-white rounded-md p-1 flex-wrap gap-2">
             <CustomButton
               isActive={activeTab === 'fssai'}
               onClick={() => setActiveTab('fssai')}
@@ -171,7 +182,7 @@ const Certificate = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-0">
           {activeTab === 'fssai' ? (
             <>
               <CertificateContent data={certificates.fssai} />

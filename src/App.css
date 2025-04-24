@@ -4,8 +4,7 @@ html,body {
   scroll-padding-top: 80px;
 }
 
-
-/* WebKit (Chrome, Safari, Edge) */
+/* 
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
@@ -22,10 +21,6 @@ html,body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #b10303;
-}
+} */
 
-/* Firefox */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #9c0202 #181818;
-}
+
