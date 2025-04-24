@@ -61,6 +61,7 @@ import React from 'react'
 import NavbarSection from './components/Navbar'
 import HomeSection from './components/Home'
 import AboutSection from './components/About'
+import './App.css';
 import ServiceSection from './components/Service';
 import Certificate from './components/Certificate';
 import AwardSection from './components/Awards';
