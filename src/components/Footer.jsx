@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import {FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import FooterLogo from '/Footer/icon.png'
 
 const Footer = () => {
@@ -23,13 +23,14 @@ const Footer = () => {
           <ul className="space-y-1 text-base">
             {links.map((link) => (
               <li key={link}>
-                <a href={`/${link.toLowerCase()}`} className="hover:text-[#9c0202] transition-colors">
+                <a href={`#${link.toLowerCase()}`} className="hover:text-red-400 transition-colors">
                   {link}
                 </a>
               </li>
             ))}
           </ul>
         </div>
+
 
         {/* Column 3 - Contact Info */}
         <div className="flex flex-col max-w-xs">
@@ -40,37 +41,48 @@ const Footer = () => {
           </p>
           <p className="text-sm mb-4 flex items-center">
             <FaPhone className="mr-2" size={16} />
-            <a href="tel:+919566037235" className="hover:text-[#9c0202] transition-colors">
+            <a href="tel:+919566037235" className="hover:text-red-400 transition-colors">
               +91 9566037235
             </a>
           </p>
           <p className="text-sm flex items-center">
             <FaEnvelope className="mr-2" size={16} />
-            <a href="mailto:premanand783@gmail.com" className="hover:text-[#9c0202] transition-colors">
+            <a href="mailto:premanand783@gmail.com" className="hover:text-red-400 transition-colors">
               premanand783@gmail.com
             </a>
           </p>
         </div>
 
-        {/* Column 4 - Social Links */}
         <div className="flex flex-col">
-          <h3 className="text-lg font-semibold mb-3 text-[#ffecad] font-quicksand">Follow Us</h3>
-          <div className="flex space-x-3">
-            {/* <a href="https://facebook.com" className="hover:text-[#9c0202]">
-              <FaFacebook size={20} />
-            </a>
-            <a href="https://twitter.com" className="hover:text-[#9c0202]">
-              <FaTwitter size={20} />
-            </a> */}
-            <a href="https://www.instagram.com/premanand8144?igsh=Y2t0d2k1ZGhqMWJ3" target="_blank" 
-          rel="noopener noreferrer" className="hover:text-[#9c0202]">
-              <FaInstagram size={30} />
-            </a>
-            {/* <a href="https://linkedin.com" className="hover:text-[#9c0202]">
-              <FaLinkedin size={20} />
-            </a> */}
-          </div>
-        </div>
+  <h3 className="text-lg font-semibold mb-3 text-[#ffecad] font-quicksand">Follow Us</h3>
+  <div className="flex space-x-4 items-center">
+    <a
+      href="https://www.instagram.com/premanand8144?igsh=Y2t0d2k1ZGhqMWJ3"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-red-400"
+    >
+      <img
+        src="Footer/instagram.png"
+        alt="Get it on Google Play"
+        className="h-10"
+      />
+    </a>
+    <a
+      href="https://play.google.com/store/apps/details?id=com.spiderindia.ChopChop" // Replace with your actual Play Store URL
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block"
+    >
+      <img
+        src="/Footer/playstore.svg"
+        alt="Get it on Google Play"
+        className="h-10"
+      />
+    </a>
+  </div>
+</div>
+
       </div>
 
       {/* Bottom Copyright */}
@@ -81,7 +93,7 @@ const Footer = () => {
           rel="noopener noreferrer" 
           className="text-sm"
         >
-          © {currentYear} <span className="hover:text-[#9c0202] transition-colors">BMTechx</span>.in All rights reserved.
+          © {currentYear} <span className="hover:text-red-400 transition-colors">BMTechx</span>.in All rights reserved.
         </a>
       </div>
     </footer>

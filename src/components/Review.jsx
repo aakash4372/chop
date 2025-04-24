@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { RiDoubleQuotesL } from "react-icons/ri";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Reviewsection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      once: true,     // Trigger animation only once
+    });
+  }, []);
+  
 
   const testimonials = [
     {
@@ -52,8 +63,8 @@ const Reviewsection = () => {
     <div className="bg-[#f8f5f0] py-16 px-4 sm:px-6 lg:px-8" id='testimonial'>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-[#9c0202] text-3xl font-dancing mt-2 pb-6">Testimonials</h2>
-          <p className="text-4xl md:text-5xl font-bold text-black font-opensans leading-tight mb-6">Our Clients Say</p>
+          <h2 className="text-[#9c0202] text-3xl font-dancing mt-2 pb-6" data-aos="fade-up">Testimonials</h2>
+          <p className="text-4xl md:text-5xl font-bold text-black font-opensans leading-tight mb-6" data-aos="fade-up">Our Clients Say</p>
         </div>
 
         <div className="relative overflow-hidden">

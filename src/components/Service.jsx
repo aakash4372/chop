@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Button, Card, CardContent, CardMedia, Grid, Pagination, Typography, Box } from '@mui/material';
 import { styled } from '@mui/system';
 import { GiChicken, GiGoat } from "react-icons/gi";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 const products = [
   { id: 1, name: 'Chicken Regular - WithSkin', image: '/chicken/regular.jpg', type: 'Chicken', discount: 10 },
@@ -120,12 +124,20 @@ const ProductCardApp = () => {
     setPage(value);
   };
 
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      once: true,     // Trigger animation only once
+    });
+  }, []);
+  
+
   return (
     <div className="bg-[#191716] p-8 flex flex-col items-center" id='services'>
-      <p className="text-[#ffecad] text-3xl pt-8 font-dancing mb-2">
+      <p className="text-[#ffecad] text-3xl pt-8 font-dancing mb-2"  data-aos="fade-up">
         Our Services
       </p>
-      <h2 className="text-4xl md:text-5xl font-bold pt-3 text-white  font-opensans leading-tight mb-6">
+      <h2 className="text-4xl md:text-5xl font-bold pt-3 text-white  font-opensans leading-tight mb-6"  data-aos="zoom-in">
         Best Products
       </h2>
 

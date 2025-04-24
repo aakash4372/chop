@@ -5,6 +5,8 @@ import Pin from '../assets/certificate/pin.png';
 import { FaShieldAlt, FaFileInvoiceDollar } from 'react-icons/fa';
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Certificate = () => {
   const [activeTab, setActiveTab] = useState('fssai');
@@ -130,19 +132,29 @@ const Certificate = () => {
     </div>
   );
 
+  // Initialize AOS
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duration of animation
+      once: true,     // Trigger animation only once
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 py-12 px-4 sm:px-6 lg:px-8" id='certificate'>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-[#9c0202] text-3xl pt-8 font-dancing mb-2">
+          {/* Heading with AOS */}
+          <h1 className="text-[#9c0202] text-3xl pt-8 font-dancing mb-2" data-aos="fade-up">
             Our Certifications
           </h1>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#000000] font-sans leading-tight mb-6">
+          {/* Subheading with AOS */}
+          <h2 className="text-4xl md:text-5xl font-bold text-[#000000] font-sans leading-tight mb-6" data-aos="fade-up">
             Trusted Quality & Compliance
           </h2>
         </div>
 
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-10" data-aos="fade-left">
           <div className="inline-flex bg-white rounded-md p-1">
             <CustomButton
               isActive={activeTab === 'fssai'}

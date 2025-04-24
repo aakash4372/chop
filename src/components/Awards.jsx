@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import the AOS CSS
 
 const AwardsSection = () => {
   const [currentAward, setCurrentAward] = useState(0);
@@ -8,19 +10,19 @@ const AwardsSection = () => {
     {
       image: '/award/one.JPG',
       title: 'Studio One Golden Icon Award',
-      description: 'Golden Icon Award – Best E-Commerce in Fresh Mutton & ChickenWe are proud to announce that Studio One has honored us with the Golden Icon Award for Best E-Commerce in Mutton and Chicken (No Frozen) on March 30, 2025.',
+      description: 'Golden Icon Award – Best E-Commerce in Fresh Mutton & Chicken. We are proud to announce that Studio One has honored us with the Golden Icon Award for Best E-Commerce in Mutton and Chicken (No Frozen) on March 30, 2025.',
       date: 'March 30, 2025'
     },
     {
       image: '/award/two.JPG',
       title: 'Studio One Golden Icon Award',
-      description: 'Golden Icon Award – Best E-Commerce in Fresh Mutton & ChickenWe are proud to announce that Studio One has honored us with the Golden Icon Award for Best E-Commerce in Mutton and Chicken (No Frozen) on March 30, 2025.',
+      description: 'Golden Icon Award – Best E-Commerce in Fresh Mutton & Chicken. We are proud to announce that Studio One has honored us with the Golden Icon Award for Best E-Commerce in Mutton and Chicken (No Frozen) on March 30, 2025.',
       date: 'March 30, 2025'
     },
     {
       image: '/award/three.JPG',
       title: 'Studio One Golden Icon Award',
-      description: 'Golden Icon Award – Best E-Commerce in Fresh Mutton & ChickenWe are proud to announce that Studio One has honored us with the Golden Icon Award for Best E-Commerce in Mutton and Chicken (No Frozen) on March 30, 2025.',
+      description: 'Golden Icon Award – Best E-Commerce in Fresh Mutton & Chicken. We are proud to announce that Studio One has honored us with the Golden Icon Award for Best E-Commerce in Mutton and Chicken (No Frozen) on March 30, 2025.',
       date: 'March 30, 2025'
     }
   ];
@@ -49,6 +51,10 @@ const AwardsSection = () => {
     }, 300); // Matches the transition duration
   };
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS
+  }, []);
+
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 bg-[#191716] relative">
       <div className="max-w-7xl mx-auto">
@@ -63,7 +69,7 @@ const AwardsSection = () => {
         {/* Carousel */}
         <div className="flex flex-col lg:flex-row items-center gap-8 relative z-10">
           {/* Left Side - Image with fade effect */}
-          <div className="w-full lg:w-1/2 rounded-lg overflow-hidden shadow-xl relative">
+          <div className="w-full lg:w-1/2 rounded-lg overflow-hidden shadow-xl relative" data-aos="fade-up">
             <img 
               src={awards[currentAward].image} 
               alt={awards[currentAward].title}
@@ -72,7 +78,7 @@ const AwardsSection = () => {
           </div>
 
           {/* Right Side - Content */}
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2" data-aos="fade-up" data-aos-delay="200">
             <h3 className={`text-2xl font-bold text-[#ffecad] mb-2 transition-opacity font-quicksand duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}>
               {awards[currentAward].title}
             </h3>
